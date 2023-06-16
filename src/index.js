@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createStore } from 'redux';
 import './index.css';
 import App from './components/App';
+import movies from './reducers';
 
+const store = createStore(movies);
+console.log("store is: ", store);
+// console.log("dispatch is: ", store.dispatch);
+// console.log("Type of dispatch is: ",typeof(store.dispatch));
+// console.log("BEFORE state is: ",store.getState());
+
+// //using dispatch we can send action to reducer, it will change the State. 'dispatch' is used to change the state.
+// store.dispatch({
+//   type: "ADD_MOVIES",
+//   movies: [{name: 'Superman'}]
+// })
+
+// console.log("AFTER state is: ",store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <App store ={store}/>      {/* passing store as a prop in DOM */}
   </React.StrictMode>
 );
 

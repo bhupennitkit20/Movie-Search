@@ -8,7 +8,7 @@ body {
   background: #f1f1f1;
 }
 .nav {
-  background: black;
+  background: rgb(36, 99, 57);
   height: 70px;
   padding: 10px;
   box-sizing: border-box;
@@ -79,7 +79,7 @@ body {
   cursor: pointer;
 }
 #search-btn {
-  background: #f2711c;
+  background: #b3622c;
   height: 43px;
   color: #fff;
   border: none;
