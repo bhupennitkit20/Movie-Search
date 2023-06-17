@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import { ADD_MOVIES, ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES, SET_SHOW_FAVOURITES } from '../actions';
 
 const initialMoviesState = {
@@ -6,19 +7,8 @@ const initialMoviesState = {
     showFavourites: false
 }
 
-export default function movies (state = initialMoviesState, action){
-    
-    // if(action.type === ADD_MOVIES){
-    //     console.log("action.movies is: ",action.movies)
-    //     return {
-    //         ...state,
-    //         list: action.movies
-    //      }
-    //    }
-    //  return state;
-    // } 
-
-
+// creating reducer, here reducer is 'movies'
+export function movies (state = initialMoviesState, action){
     switch (action.type){
         case ADD_MOVIES : 
              return {
@@ -47,3 +37,30 @@ export default function movies (state = initialMoviesState, action){
              return state;     
     }
 }
+
+
+const initialSearchState = {
+    result: { }                    //result is an empty state
+}
+// creating reducer "search"
+export function search (state = initialSearchState, action){
+    return state;
+}
+
+const initialRootState = {
+    movies: initialMoviesState,
+    search: initialSearchState
+}
+// // creating root reducer "search"
+// export default function rootReducer (state = initialRootState, action){
+//     return {
+//         movies: movies (state.movies , action),     //movies represents first reducer movies, so movies will be managed by movies reducer
+//         search: search (state.search , action)      //search represents second reducer search, so search will be managed by search reducer
+//     }
+// }
+
+//combining two reducers movies and search, will give same output as rootReducer
+export default combineReducers({
+    movies,                         //movies represents first reducer movies, so movies will be managed by movies reducer
+    search                          //search represents second reducer search, so search will be managed by search reducer
+})

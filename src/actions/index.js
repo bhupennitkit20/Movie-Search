@@ -31,7 +31,7 @@ export function removeFromFavourites (movie) {
         movie                    //also can be written like movie: movie
       }
 }
-export function setshowFavourites (val) {
+export function setshowFavourites (val) {     //val is Boolean here
     return {
         type: SET_SHOW_FAVOURITES,
         val                    //also can be written like movie: movie

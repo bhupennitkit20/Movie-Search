@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { createStore } from 'redux';
 import './index.css';
 import App from './components/App';
-import movies from './reducers';
+import  rootReducer from './reducers';
 
-const store = createStore(movies);
+const store = createStore(rootReducer);       //store taking 'reducer'  'movies' as an argument
 console.log("store is: ", store);
 // console.log("dispatch is: ", store.dispatch);
 // console.log("Type of dispatch is: ",typeof(store.dispatch));
-// console.log("BEFORE state is: ",store.getState());
+console.log("state is: ",store.getState());
 
 // //using dispatch we can send action to reducer, it will change the State. 'dispatch' is used to change the state.
 // store.dispatch({

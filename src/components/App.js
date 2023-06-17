@@ -19,7 +19,8 @@ class App extends React.Component {
   }
 
   isMovieFavourite = (movie) => {
-    const {favourites} = this.props.store.getState(); //destrucing favourite array from state getstate()
+    const {movies} = this.props.store.getState();
+    const {favourites} = movies; //destrucing favourite array from state getstate()
     const index = favourites.indexOf(movie);  //if index not found, it will give -1
     if(index !== -1){
       return true;       //found the movie
@@ -30,7 +31,9 @@ class App extends React.Component {
     this.props.store.dispatch(setshowFavourites(val))
   }
   render() {
-        const {list, favourites, showFavourites} = this.props.store.getState();  //state coming through props from main index file
+        const {movies} = this.props.store.getState();  //taking movies from store.getState() using destructuring
+        console.log("movies is: ", movies)
+        const {list, favourites, showFavourites} = movies;   //destructure
         console.log("RENDER: ", this.props.store.getState())
         const displayMovies = showFavourites ? favourites : list;
         return (
